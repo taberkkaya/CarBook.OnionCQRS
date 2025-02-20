@@ -1,6 +1,6 @@
 ﻿namespace CarBook.Domain.Entities;
 
-public class Location : BaseEntity
+public class Category : BaseEntity
 {
     public string Name { get; set; }
 }

@@ -1,8 +1,6 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿namespace CarBook.Domain.Entities;
 
-namespace CarBook.Domain.Entities;
-
-public class Car : EntityBase
+public class Car : BaseEntity
 {
     public int BrandId { get; set; }
     public Brand Brand { get; set; }
@@ -14,4 +12,7 @@ public class Car : EntityBase
     public byte Luggage { get; set; }
     public string Fuel { get; set; }
     public string BigImageUrl { get; set; }
+    public List<CarFeature> CarFeatures { get; set; }
+    public List<CarDescription> CarDescriptions { get; set; }
+    public List<CarPricing> CarPricings { get; set; }
 }
