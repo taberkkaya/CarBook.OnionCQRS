@@ -51,9 +51,9 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> RemoveAbout(int id)
+        public async Task<IActionResult> RemoveAbout(RemoveAboutCommand command)
         {
-            await _removeAboutCommandHandler.Handle(new RemoveAboutCommand(id));
+            await _removeAboutCommandHandler.Handle(command);
             return Ok();
         }
 

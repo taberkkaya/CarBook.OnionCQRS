@@ -51,9 +51,9 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> RemoveBanner(int id)
+        public async Task<IActionResult> RemoveBanner(RemoveBannerCommand command)
         {
-            await _removeBannerCommandHandler.Handle(new RemoveBannerCommand(id));
+            await _removeBannerCommandHandler.Handle(command);
             return Ok();
         }
 
