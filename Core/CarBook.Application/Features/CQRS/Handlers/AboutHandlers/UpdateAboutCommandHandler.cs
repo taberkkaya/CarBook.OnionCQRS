@@ -15,13 +15,13 @@ public class UpdateAboutCommandHandler
 
     public async Task Handle(UpdateAboutCommand command)
     {
-        var values = await _repository.GetByIdAsync(command.Id);
+        var value = await _repository.GetByIdAsync(command.Id);
 
-        values!.Title = command.Title;
-        values.Description = command.Description;
-        values.ImageUrl = command.ImageUrl;
-        values.UpdatedDate = DateTime.Now;
+        value!.Title = command.Title;
+        value.Description = command.Description;
+        value.ImageUrl = command.ImageUrl;
+        value.UpdatedDate = DateTime.Now;
 
-        await _repository.UpdateAsync(values);
+        await _repository.UpdateAsync(value);
     }
 }

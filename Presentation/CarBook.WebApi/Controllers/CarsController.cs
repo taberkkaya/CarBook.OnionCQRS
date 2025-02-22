@@ -15,26 +15,28 @@ namespace CarBook.WebApi.Controllers
         private readonly GetCarQueryHandler _getCarQueryHandler;
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
         private readonly UpdateCarCommandHandler _updateCarCommandHandler;
-
+        private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
         public CarsController(
-            CreateCarCommandHandler createCarCommandHandler, 
-            GetCarByIdQueryHandler getCarByIdQueryHandler, 
-            GetCarQueryHandler getCarQueryHandler, 
-            RemoveCarCommandHandler removeCarCommandHandler, 
-            UpdateCarCommandHandler updateCarCommandHandler)
+            CreateCarCommandHandler createCarCommandHandler,
+            GetCarByIdQueryHandler getCarByIdQueryHandler,
+            GetCarQueryHandler getCarQueryHandler,
+            RemoveCarCommandHandler removeCarCommandHandler,
+            UpdateCarCommandHandler updateCarCommandHandler,
+            GetCarWithBrandQueryHandler getCarWithBrandQueryHandler)
         {
             _createCarCommandHandler = createCarCommandHandler;
             _getCarByIdQueryHandler = getCarByIdQueryHandler;
             _getCarQueryHandler = getCarQueryHandler;
             _removeCarCommandHandler = removeCarCommandHandler;
             _updateCarCommandHandler = updateCarCommandHandler;
+            _getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
         }
 
         [HttpGet]
         public async Task<IActionResult> CarList()
         {
             var values = await _getCarQueryHandler.Handle();
-            return Ok(values);  
+            return Ok(values);
         }
 
         [HttpGet("{id}")]
@@ -62,7 +64,14 @@ namespace CarBook.WebApi.Controllers
         public async Task<IActionResult> UpdateCar(UpdateCarCommand command)
         {
             await _updateCarCommandHandler.Handle(command);
-            return Ok();    
+            return Ok();
+        }
+
+        [HttpGet("GetCarWithBrand")]
+        public IActionResult GetCarWithBrand()
+        {
+            var values =  _getCarWithBrandQueryHandler.Handle();
+            return Ok(values);
         }
     }
 }

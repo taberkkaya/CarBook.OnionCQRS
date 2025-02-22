@@ -1,5 +1,6 @@
 ﻿using CarBook.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CarBook.Persistence.Context;
 
@@ -25,4 +26,5 @@ public class CarBookContext : DbContext
     public DbSet<Service> Services { get; set; }
     public DbSet<SocialMedia> SocialMedias { get; set; }
     public DbSet<Testimonial> Testimonials { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
 }
