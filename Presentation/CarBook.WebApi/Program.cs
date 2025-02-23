@@ -1,4 +1,5 @@
 using CarBook.Application;
+using CarBook.Application.Features.Services;
 using CarBook.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddPersistence();  
+
 builder.Services.AddApplication();
+builder.Services.AddApplicationService(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
