@@ -17,13 +17,6 @@ namespace CarBook.WebApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetLocation(int id)
-        {
-            var value = await _mediator.Send(new GetLocationByIdQuery(id));
-            return Ok(value);
-        }
-
         [HttpGet]
         public async Task<IActionResult> LocationList()
         {
@@ -50,6 +43,13 @@ namespace CarBook.WebApi.Controllers
         {
             await _mediator.Send(command);
             return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetLocation(int id)
+        {
+            var value = await _mediator.Send(new GetLocationByIdQuery(id));
+            return Ok(value);
         }
 
     }
