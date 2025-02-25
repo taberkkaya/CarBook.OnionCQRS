@@ -36,6 +36,7 @@ public static class DependencyInjection
         services.AddScoped<RemoveCarCommandHandler>();
         services.AddScoped<UpdateCarCommandHandler>();
         services.AddScoped<GetCarWithBrandQueryHandler>();
+        services.AddScoped<GetLast5CarsWithBrandQueryHandler>();
 
         services.AddScoped<CreateCategoryCommandHandler>();
         services.AddScoped<GetCategoryByIdQueryHandler>();
