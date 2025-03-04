@@ -31,4 +31,11 @@ public class BlogController : Controller
 
         return View();
     }
+
+    public async Task<IActionResult> Detail(int id)
+    {
+        ViewBag.v1 = "Bloglarımız";
+        ViewBag.v2 = "Blog Detayı ve Yorumlar";
+        return View();
+    }
 }
