@@ -11,4 +11,5 @@ public class Blog : BaseEntity
     public string CoverImgUrl { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
+    public string Description { get; set; }
 }

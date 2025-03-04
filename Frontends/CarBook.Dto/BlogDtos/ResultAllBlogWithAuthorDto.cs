@@ -1,9 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using CarBook.Domain.Entities;
+﻿namespace CarBook.Dto.BlogDtos;
 
-namespace CarBook.Application.Features.Mediator.Results.BlogResults;
-
-public class GetAllBlogsWithAuthorQueryResult
+public class ResultAllBlogWithAuthorDto
 {
     public int Id { get; set; }
     public string Title { get; set; }
@@ -15,5 +12,4 @@ public class GetAllBlogsWithAuthorQueryResult
     public string CategoryName { get; set; }
     public string Description { get; set; }
     public DateTime CreatedDate { get; set; }
-
 }
