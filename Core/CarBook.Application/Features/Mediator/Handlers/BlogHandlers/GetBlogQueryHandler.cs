@@ -26,6 +26,7 @@ public class GetBlogQueryHandler : IRequestHandler<GetBlogQuery, List<GetBlogQue
             Title = x.Title,
             CategoryId = x.CategoryId,
             AuthorId = x.AuthorId,
+            Description = x.Description
         }).ToList();
 
     }

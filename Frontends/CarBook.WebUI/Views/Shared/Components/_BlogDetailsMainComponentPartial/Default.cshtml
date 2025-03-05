@@ -1,18 +1,21 @@
-﻿<div class="col-md-8 ftco-animate">
-    <h2 class="mb-3">It is a long established fact a reader be distracted</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
-    <p>
-        <img src="/carbook-master/images/image_7.jpg" alt="" class="img-fluid">
-    </p>
+﻿@model ResultBlogDto
 
-    @await Component.InvokeAsync("_BlogDetailTagCloudByBlogComponentPartial")
+<div class="col-md-8 ftco-animate">
 
-    @await Component.InvokeAsync("_BlogDetailsAboutAuthorComponentPartial")
+	<h2 class="mb-3">@Model.Title</h2>
+	<p>
+		<img src="@Model.CoverImgUrl" alt="" class="img-fluid">
+	</p>
+	<p>@Html.Raw(Model.Description)</p>
 
-    <div class="pt-5 mt-5">
-        @await Component.InvokeAsync("_BlogDetailsCommentsComponentPartial")
+	@await Component.InvokeAsync("_BlogDetailTagCloudByBlogComponentPartial", new { id = Model.Id })
 
-        @await Component.InvokeAsync("_BlogDetailSendACommentComponentPartial")
-    </div>
+	@await Component.InvokeAsync("_BlogDetailsAboutAuthorComponentPartial")
+
+	<div class="pt-5 mt-5">
+		@await Component.InvokeAsync("_BlogDetailsCommentsComponentPartial")
+
+		@await Component.InvokeAsync("_BlogDetailSendACommentComponentPartial")
+	</div>
 
 </div> <!-- .col-md-8 -->

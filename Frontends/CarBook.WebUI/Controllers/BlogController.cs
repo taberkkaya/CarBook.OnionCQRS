@@ -36,6 +36,7 @@ public class BlogController : Controller
     {
         ViewBag.v1 = "Bloglarımız";
         ViewBag.v2 = "Blog Detayı ve Yorumlar";
+        ViewBag.blogId = id;
         return View();
     }
 }
