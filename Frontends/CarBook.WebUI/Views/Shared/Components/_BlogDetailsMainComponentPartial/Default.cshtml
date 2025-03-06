@@ -10,7 +10,7 @@
 
 	@await Component.InvokeAsync("_BlogDetailTagCloudByBlogComponentPartial", new { id = Model.Id })
 
-	@await Component.InvokeAsync("_BlogDetailsAboutAuthorComponentPartial")
+	@await Component.InvokeAsync("_BlogDetailsAboutAuthorComponentPartial", new {authorId = Model.AuthorId})
 
 	<div class="pt-5 mt-5">
 		@await Component.InvokeAsync("_BlogDetailsCommentsComponentPartial")

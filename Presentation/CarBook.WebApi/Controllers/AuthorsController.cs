@@ -44,7 +44,7 @@ public class AuthorsController : ControllerBase
         return Ok();
     }
 
-    [HttpPost("{id}")]
+    [HttpGet("{id}")]
     public async Task<IActionResult> GetAuthor(int id)
     {
         var value = await _mediator.Send(new GetAuthorByIdQuery(id));
